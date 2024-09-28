@@ -1,0 +1,5 @@
+{
+    "redirects": [
+       { "source": "/api/(.*)", "destination": "BACKEND_URL/$1", "statusCode": 200 }
+    ]
+ }
