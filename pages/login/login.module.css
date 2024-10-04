@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.container{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+
+}
+.right{
+    width: 48%;
+    
+    margin-left: 7rem;
+  
+}
+.inputt{
+    width: 29rem;
+}
+.left{
+    display: flex;
+    flex: 1;
+    position: relative;
+    
+}
+ .img{
+    width: 100%;
+   height: 41em;
+   float:right;
+   object-fit: fill;
+
+}
+h1{
+    margin-top: 2rem;
+}
+span{
+    color: #525252;
+    font-size: 13px;
+margin-bottom: 25px;
+margin-top: 2px;
+
+}
+h4{
+    color: #525252;
+}
+.heading{
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    right: 9rem;
+    color: white;
+    font-size: 24px;
+   
+
+}
+input{
+    
+    width: 400px;
+    padding: 12px;
+    margin: 10px 10px 10px 0px;
+    border-radius: 7px;
+    border: 2px solid #C2C2C2;
+    
+}
+button{
+    background: #ED5353;
+    color: #FFFFFF;
+    width: 170px;
+    padding: 12px;
+    margin-top: 18px;
+    
+    border: none;
+    border-radius: 3px;
+
+}
+a{
+    color: #000000;
+
+}
+label{
+  
+    color: #525252;
+    font-size: 13px;
+
+
+}
+input[type=checkBox] {
+    width: 20px;
+    
+    
+
+    
+    
+}
