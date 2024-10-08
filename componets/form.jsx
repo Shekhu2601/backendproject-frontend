@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 
 
-function FormField({ name, type, placeholder, value, onChange,label }) {
+function FormField({ name, type, placeholder, value, onChange,label ,className, span}) {
     return (
        <>
-        <input value={value} onChange={onChange} name={name} type={type} placeholder={placeholder} />
+    {label? <label id={name} htmlFor={name}>{label}</label>:null}
+        
+        <input value={value} onChange={onChange} name={name} className={className} type={type} placeholder={placeholder} />
        
-        {label? <label id={name} htmlFor={name}>{label}</label>:null}
+        {span? <span id={name} htmlFor={name}>{span}</span>:null}
        </>
     )
 }
@@ -16,7 +18,9 @@ export default function Form({ formFields, onSubmit, error, errorMessages, btn }
         {
             formFields.map((field, index) => (
                 <>
-                    <FormField value={field.value} onChange={field.onChange} name={field.name} type={field.type} placeholder={field.placeholder}
+                    <FormField value={field.value} 
+                    className={field.className} onChange={field.onChange} name={field.name} type={field.type} span={field.span}
+                    placeholder={field.placeholder}
                     label={field.label} key={index} />
                     {error[field.name] ? <p>{errorMessages[field.name].message}</p> : null
 

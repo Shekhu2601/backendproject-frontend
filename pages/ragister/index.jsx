@@ -72,7 +72,7 @@ export default function Register() {
             name:"checkBox",
             type:"checkBox",
             placeholder:"By creating an account, I agree to our terms of use and privacy policy",
-            label:"By creating an account, I agree to our terms of use and privacy policy",
+            span:"By creating an account, I agree to our terms of use and privacy policy",
             value: formData.checkBox,
             onChange: (e) => {
                 setFormData({ ...formData, checkBox: e.target.checked })

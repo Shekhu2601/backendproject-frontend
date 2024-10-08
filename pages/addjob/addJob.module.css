@@ -11,13 +11,13 @@
 
 }
 .right{
-    width: 48%;
+    width: 60%;
     
     margin-left: 7rem;
   
 }
 .inputt{
-    width: 29rem;
+    
 }
 .left{
     display: flex;
@@ -49,7 +49,7 @@ h4{
     display: flex;
     position: absolute;
     top: 2rem;
-    right: 9rem;
+    right: 2.7rem;
     color: white;
     font-size: 24px;
    
@@ -64,6 +64,9 @@ input{
     border: 2px solid #C2C2C2;
     
 }
+
+    
+
 button{
     background: #ED5353;
     color: #FFFFFF;
@@ -79,10 +82,12 @@ a{
     color: #000000;
 
 }
+label{
+  font-size: 15px;
+  margin-right: 20px;
 
 
-
-
+}
 input[type=checkBox] {
     width: 20px;
     
