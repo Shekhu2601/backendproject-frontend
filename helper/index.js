@@ -27,3 +27,14 @@ export function handleApiResponse(res) {
             break;
     }
 }
+
+import { decodeToken } from 'react-jwt';
+export function isEditable(id){
+    const token= localStorage.getItem("token")
+    if(!token){
+        return false;
+    }
+    const decoded =decodeToken(token)
+    console.log(decoded)
+    return decoded.id == id
+   } 

@@ -6,11 +6,16 @@ export function getAllJobs() {
         headers
     }
     );
+     if(res.status==401){
+        localStorage.removeItem("token");
+        alert("you are logged out")
+        window.location ="/login"
+    }
     return res;
 }
 
 export function fetchJobById(id) {
-    // return new Promise((resolve, reject) => {
+      // return new Promise((resolve, reject) => {
     //     reject(new Error("Something went wrong"));
     // })
     const headers = AddTokenToHeader({ headers: {} });
