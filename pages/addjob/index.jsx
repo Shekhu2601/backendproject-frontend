@@ -11,7 +11,14 @@ export default function addJob() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         CompanyName: "",
-        email: "",
+        AddlogoURL: "",
+        Jobposition:"",
+        Monthlysalary:"",
+        JobType:[  { value: 1, show: '3' },
+            { value: 2, show: '6' },
+            { value: 3, show: '9' },
+
+        ],
         mobile : "",
         password: "",
         confirmPassword: "",
@@ -40,12 +47,102 @@ export default function addJob() {
             }
         },
         {
-            name: "email",
-            type: "email",
-            placeholder: "Enter your email",
-            value: formData.email,
+            AddlogoURL: "Add logo URL",
+            type: "text",
+            placeholder: "Enter the link",
+            label:"Add logo URL ",
+            className:"inputs",
+            value: formData.AddlogoURL,
             onChange: (e) => {
-                setFormData({ ...formData, email: e.target.value })
+                setFormData({ ...formData, AddlogoURL: e.target.value })
+            }
+        },
+        {
+            Jobposition: "Job position",
+            type: "text",
+            placeholder: "Enter job position",
+            label:"Job position ",
+            className:"inputs",
+            value: formData.Jobposition,
+            onChange: (e) => {
+                setFormData({ ...formData, Jobposition: e.target.value })
+            }
+        },
+        {
+            Monthlysalary: "Monthly salary",
+            type: "text",
+            placeholder: "Enter Amount in rupees",
+            label:"Monthly salary",
+            className:"inputs",
+            value: formData.Monthlysalary,
+            onChange: (e) => {
+                setFormData({ ...formData, Monthlysalary: e.target.value })
+            }
+        },
+        {
+            JobType: "Job Type",
+            type: "select",
+            placeholder: "Enter the link",
+            label:"Job Type ",
+            className:"inputs",
+            value: formData.JobType,
+            onChange: (e) => {
+                setFormData({ ...formData, JobType: e.target.value })
+            }
+        },
+        {
+            AddlogoURL: "Add logo URL",
+            type: "text",
+            placeholder: "Enter the link",
+            label:"Add logo URL ",
+            className:"inputs",
+            value: formData.AddlogoURL,
+            onChange: (e) => {
+                setFormData({ ...formData, AddlogoURL: e.target.value })
+            }
+        },
+        {
+            AddlogoURL: "Add logo URL",
+            type: "text",
+            placeholder: "Enter the link",
+            label:"Add logo URL ",
+            className:"inputs",
+            value: formData.AddlogoURL,
+            onChange: (e) => {
+                setFormData({ ...formData, AddlogoURL: e.target.value })
+            }
+        },
+        {
+            AddlogoURL: "Add logo URL",
+            type: "text",
+            placeholder: "Enter the link",
+            label:"Add logo URL ",
+            className:"inputs",
+            value: formData.AddlogoURL,
+            onChange: (e) => {
+                setFormData({ ...formData, AddlogoURL: e.target.value })
+            }
+        },
+        {
+            AddlogoURL: "Add logo URL",
+            type: "text",
+            placeholder: "Enter the link",
+            label:"Add logo URL ",
+            className:"inputs",
+            value: formData.AddlogoURL,
+            onChange: (e) => {
+                setFormData({ ...formData, AddlogoURL: e.target.value })
+            }
+        },
+        {
+            AddlogoURL: "Add logo URL",
+            type: "text",
+            placeholder: "Enter the link",
+            label:"Add logo URL ",
+            className:"inputs",
+            value: formData.AddlogoURL,
+            onChange: (e) => {
+                setFormData({ ...formData, AddlogoURL: e.target.value })
             }
         },
         {
@@ -104,11 +201,67 @@ export default function addJob() {
                 setError((error) => ({ ...error, CompanyName: true }))
             }
         },
-        email: {
-            message: "Email is required",
-            isValid: formData.email.length > 0,
+        AddlogoURL: {
+            message: "Add logo URL is required",
+            isValid: formData.AddlogoURL.length > 0,
             onError: () => {
-                setError((error) => ({ ...error, email: true }))
+                setError((error) => ({ ...error, AddlogoURL: true }))
+            }
+        },
+        Jobposition: {
+            message: "Job position is required",
+            isValid: formData.Jobposition.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, Jobposition: true }))
+            }
+        },
+        Monthlysalary: {
+            message: "Monthly salary is required",
+            isValid: formData.Monthlysalary.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, Monthlysalary: true }))
+            }
+        },
+        AddlogoURL: {
+            message: "Add logo URL is required",
+            isValid: formData.AddlogoURL.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, AddlogoURL: true }))
+            }
+        },
+        AddlogoURL: {
+            message: "Add logo URL is required",
+            isValid: formData.AddlogoURL.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, AddlogoURL: true }))
+            }
+        },
+        AddlogoURL: {
+            message: "Add logo URL is required",
+            isValid: formData.AddlogoURL.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, AddlogoURL: true }))
+            }
+        },
+        AddlogoURL: {
+            message: "Add logo URL is required",
+            isValid: formData.AddlogoURL.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, AddlogoURL: true }))
+            }
+        },
+        AddlogoURL: {
+            message: "Add logo URL is required",
+            isValid: formData.AddlogoURL.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, AddlogoURL: true }))
+            }
+        },
+        AddlogoURL: {
+            message: "Add logo URL is required",
+            isValid: formData.AddlogoURL.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, AddlogoURL: true }))
             }
         },
         mobile: {

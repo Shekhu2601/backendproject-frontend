@@ -6,7 +6,7 @@ export const ragister =async(data)=>{
             'Content-Type': "application/x-www-form-urlencoded"
         }
     });
-    return handleApiResponse(res); }
+    return res; }
 
 
     export const login =async(data)=>{

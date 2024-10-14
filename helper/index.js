@@ -6,7 +6,7 @@ export function AddTokenToHeader({ headers }) {
     return headers;
 }
 export function handleApiResponse(res) {
-    switch (res.response.status) {
+    switch (res?.response?.status) {
         case 401:
             localStorage.removeItem("token");
             alert("You're logged out");
@@ -15,11 +15,10 @@ export function handleApiResponse(res) {
         case 400:
             alert("Invalid email or password");
             return null;
-        case 201:
+        case 200:
             alert("Registered successfully");
             return res.data;
-        case 200:
-            return res.data;
+       
         case 500:
             alert("Something went wrong");
             return null;
