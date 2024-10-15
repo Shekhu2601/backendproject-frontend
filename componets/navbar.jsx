@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import styles from "./navbar.module.css"
 
 export default function Navbar(){
     const navigate =useNavigate()
@@ -10,14 +11,17 @@ export default function Navbar(){
         navigate("/login")
         
     }
+    const login =()=>{
+        navigate("/login")
+    }
+    const register =()=>{
+        navigate("/ragister")
+    }
     return(
-       <nav style={
-        {display:"flex",
-            zIndex:100,
-        }
-       }>
-        Navbar
-        {isLogin ?<><p>&nbsp; Hello Recruiter	</p> <button onClick={logout}> Logout</button> </> : <p> &nbsp; not logged in</p>}
+       <nav>
+       <p className={styles.nav}>Jobfinder</p>
+        {isLogin ?<><p>&nbsp; 	</p> <button className={styles.btn} onClick={logout}> Logout</button> </> : <button className={styles.btn} onClick={login}> Login</button> }
+        {isLogin ?<><p>&nbsp; 	</p> <button className={styles.btn} onClick={logout}> Logout</button> </> : <button className={styles.btnre} onClick={register}> Register</button> }
 
        </nav>
     )

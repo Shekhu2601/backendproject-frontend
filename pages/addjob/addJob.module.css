@@ -33,7 +33,7 @@
 
 }
 h1{
-    margin-top: 2rem;
+    margin-top: 0rem !important;
 }
 span{
     color: #525252;
@@ -85,6 +85,8 @@ a{
 label{
   font-size: 15px;
   margin-right: 20px;
+  
+  display: inline-block;
 
 
 }

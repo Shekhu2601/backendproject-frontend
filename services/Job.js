@@ -24,3 +24,10 @@ export function fetchJobById(id) {
     });
     return res;
 }
+export function adj(data) {
+    const headers = AddTokenToHeader({ headers: {} });
+    const res = axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/job/create`, data, {
+        headers
+    });
+    return res;
+}

@@ -4,6 +4,7 @@ import styles from './ragister.module.css'
 import pageimg from "./ragisterpage.png"
 import { ragister } from "../../services/Auth";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Register() {
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -155,7 +156,7 @@ export default function Register() {
         <Form error={error} formFields={formFields} onSubmit={onSubmit} btn={btn} errorMessages={errorMessages} /></>
 
 
-        <h4>Already have an account?  <a href=""> Sign In</a> </h4>
+        <h4>Already have an account?  <Link to="/login"> Sign In</Link> </h4>
         </div>
 </div>
 <div className={styles.left}>

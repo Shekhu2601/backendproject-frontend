@@ -5,177 +5,186 @@ import pageimg from './WallpaperDog.png'
 import "./style.css"
 
 
-import { ragister } from "../../services/Auth";
+import { adj } from "../../services/Job";
 import { useNavigate } from "react-router-dom";
 export default function addJob() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        CompanyName: "",
-        AddlogoURL: "",
-        Jobposition:"",
-        Monthlysalary:"",
-        JobType:[  { value: 1, show: '3' },
-            { value: 2, show: '6' },
-            { value: 3, show: '9' },
+        companyName: "",
+        logo: "",
+        position:"",
+        salary:"",
+        jobType:"",// dropdown,
+        remote: false,
+        location:" ",
+        description: "",
+        about:"",
+        information:"",
+        skills:"",
 
-        ],
-        mobile : "",
-        password: "",
-        confirmPassword: "",
+        
+        
        
     });
-    const [btn ,setBtn]=useState("Create Account")
+    const [btn ,setBtn]=useState(" + Add Job")
     const [error, setError] = useState({
-        CompanyName: false,
-        email: false,
-        mobile:false,
-        password: false,
-        confirmPassword: false,
+        companyName: false,
+        
+        logo: false,
+        position: false,
+        salary: false,
+        jobType: false,
+        remote: false,
+        location: false,
+        description: false,
+        about: false,
+        information: false,
+        skills: false,
         
     });
+    const ChosenSkills = () => {
+        return <div>
+            {formData.skills.split(",").map((skill, idx) => <p key={idx}>{skill}</p>)}
+        </div>
+    }
     const formFields = [
         {
-            CompanyName: "CompanyName",
+            companyName: "CompanyName",
             type: "text",
             className :"inputs",
             label:"Company Name",
             
             placeholder: "Enter your name",
-            value: formData.CompanyName,
+            value: formData.companyName,
             onChange: (e) => {
-                setFormData({ ...formData, CompanyName: e.target.value })
+                setFormData({ ...formData, companyName: e.target.value })
+            }
+        },
+        
+        {
+            name: "logo",
+            type: "text",
+            label:"Add logo URL",
+            className :"inputs",
+            placeholder: "Enter job logo",
+            value: formData.logo,
+            onChange: (e) => {
+                setFormData({ ...formData, logo: e.target.value })
             }
         },
         {
-            AddlogoURL: "Add logo URL",
+            name: "position",
             type: "text",
-            placeholder: "Enter the link",
-            label:"Add logo URL ",
-            className:"inputs",
-            value: formData.AddlogoURL,
-            onChange: (e) => {
-                setFormData({ ...formData, AddlogoURL: e.target.value })
-            }
-        },
-        {
-            Jobposition: "Job position",
-            type: "text",
+            label:"Job position",
+            className :"inputs",
             placeholder: "Enter job position",
-            label:"Job position ",
-            className:"inputs",
-            value: formData.Jobposition,
+            value: formData.position,
             onChange: (e) => {
-                setFormData({ ...formData, Jobposition: e.target.value })
+                setFormData({ ...formData, position: e.target.value })
             }
         },
         {
-            Monthlysalary: "Monthly salary",
+            name: "salary",
             type: "text",
+            label:" Monthly salary",
+            className :"inputs",
             placeholder: "Enter Amount in rupees",
-            label:"Monthly salary",
-            className:"inputs",
-            value: formData.Monthlysalary,
+            value: formData.salary,
             onChange: (e) => {
-                setFormData({ ...formData, Monthlysalary: e.target.value })
+                setFormData({ ...formData, salary: e.target.value })
             }
         },
         {
-            JobType: "Job Type",
-            type: "select",
-            placeholder: "Enter the link",
-            label:"Job Type ",
-            className:"inputs",
-            value: formData.JobType,
+            name: "jobType",
+            type: "dropdown",
+            label: "Job Type",
+            values: [ "Select","Full-time", "Part-time", "Internship"],
+            label:" Job Type",
+            className :"dropdown",
+            
+            value: formData.jobType,
             onChange: (e) => {
-                setFormData({ ...formData, JobType: e.target.value })
+                setFormData({ ...formData, jobType: e.target.value })
             }
         },
         {
-            AddlogoURL: "Add logo URL",
+            name: "remote",
+            type: "checkbox",
+            label: "Remote/office",
+            className :"checkbox",
+            value: formData.remote,
+            onChange: (e) => {
+                setFormData({ ...formData, remote: e.target.checked })
+            }
+        },
+        {
+            name: "location",
             type: "text",
-            placeholder: "Enter the link",
-            label:"Add logo URL ",
-            className:"inputs",
-            value: formData.AddlogoURL,
+            placeholder: "Enter job location",
+            value: formData.location,
+            className :"inputs",
+            label:"Location",
             onChange: (e) => {
-                setFormData({ ...formData, AddlogoURL: e.target.value })
+                setFormData({ ...formData, location: e.target.value })
             }
         },
         {
-            AddlogoURL: "Add logo URL",
-            type: "text",
-            placeholder: "Enter the link",
-            label:"Add logo URL ",
-            className:"inputs",
-            value: formData.AddlogoURL,
+            name: "description",
+            type: "textarea",
+            label:" Job Description",
+            className :"inputs",
+            placeholder: "Enter job description",
+            value: formData.description,
             onChange: (e) => {
-                setFormData({ ...formData, AddlogoURL: e.target.value })
+                setFormData({ ...formData, description: e.target.value })
             }
         },
         {
-            AddlogoURL: "Add logo URL",
-            type: "text",
-            placeholder: "Enter the link",
-            label:"Add logo URL ",
-            className:"inputs",
-            value: formData.AddlogoURL,
+            name: "about",
+            type: "textarea",
+            label:" About",
+            className :"inputs",
+            placeholder: "Enter job about",
+            value: formData.about,
             onChange: (e) => {
-                setFormData({ ...formData, AddlogoURL: e.target.value })
+                setFormData({ ...formData, about: e.target.value })
             }
         },
         {
-            AddlogoURL: "Add logo URL",
-            type: "text",
-            placeholder: "Enter the link",
-            label:"Add logo URL ",
-            className:"inputs",
-            value: formData.AddlogoURL,
+            name: "information",
+            type: "textarea",
+            label:" Information",
+            className :"inputs",
+            placeholder: "Enter job information",
+            value: formData.information,
             onChange: (e) => {
-                setFormData({ ...formData, AddlogoURL: e.target.value })
+                setFormData({ ...formData, information: e.target.value })
             }
         },
         {
-            AddlogoURL: "Add logo URL",
-            type: "text",
-            placeholder: "Enter the link",
-            label:"Add logo URL ",
-            className:"inputs",
-            value: formData.AddlogoURL,
+            name: "skills",
+            type: "textarea",
+            label:" Skils",
+            className :"inputs",
+            chosen: <ChosenSkills />,
+            placeholder: "Enter job skills (add comma for separate skills)",
+            value: formData.skills,
             onChange: (e) => {
-                setFormData({ ...formData, AddlogoURL: e.target.value })
+                setFormData({ ...formData, skills: e.target.value })
             }
         },
-        {
-          name: "mobile",
-          type: "text",
-          placeholder: "Enter your Mobile",
-          value: formData.mobile,
-          onChange: (e) => {
-              setFormData({ ...formData, mobile: e.target.value })
-          }
-      },
-        {
-            name: "password",
-            type: "password",
-            placeholder: "Enter your password",
-            value: formData.password,
-            onChange: (e) => {
-                setFormData({ ...formData, password: e.target.value })
-            }
-        }, {
-            name: "confirmPassword",
-            type: "password",
-            placeholder: "Confirm your password",
-            value: formData.confirmPassword,
-            onChange: (e) => {
-                setFormData({ ...formData, confirmPassword: e.target.value })
-            }
-        }
-        ,
+      
+          
+         
+          
+     
+          
+      
+    
     ]
-    const onSubmit = async (e) => {
-        let isError = false;
+    const onSubmit = async (e) =>  {
         e.preventDefault();
+        let isError = false;
         Object.keys(errorMessages).forEach(key => {
             if (!errorMessages[key].isValid) {
                 isError = true;
@@ -183,106 +192,91 @@ export default function addJob() {
             }
         })
         if (!isError) {
-            const res = await ragister(formData);
-            if (res.status === 200) {
-                alert("Registered successfully");
-                navigate("/login");
+            console.log(formData);
+            const res = await adj(formData);
+            if (res.status === 201) {
+                alert("Job added successfully");
+                navigate("/list");
             }
             else {
                 alert("Something went wrong");
             }
         }
+        else {
+            alert("Something went wrong");
+        }
     }
     const errorMessages = {
-        CompanyName: {
+        companyName: {
             message: "CompanyName is required",
-            isValid: formData.CompanyName.length > 0,
+            isValid: formData.companyName.length > 0,
             onError: () => {
-                setError((error) => ({ ...error, CompanyName: true }))
-            }
-        },
-        AddlogoURL: {
-            message: "Add logo URL is required",
-            isValid: formData.AddlogoURL.length > 0,
-            onError: () => {
-                setError((error) => ({ ...error, AddlogoURL: true }))
-            }
-        },
-        Jobposition: {
-            message: "Job position is required",
-            isValid: formData.Jobposition.length > 0,
-            onError: () => {
-                setError((error) => ({ ...error, Jobposition: true }))
-            }
-        },
-        Monthlysalary: {
-            message: "Monthly salary is required",
-            isValid: formData.Monthlysalary.length > 0,
-            onError: () => {
-                setError((error) => ({ ...error, Monthlysalary: true }))
-            }
-        },
-        AddlogoURL: {
-            message: "Add logo URL is required",
-            isValid: formData.AddlogoURL.length > 0,
-            onError: () => {
-                setError((error) => ({ ...error, AddlogoURL: true }))
-            }
-        },
-        AddlogoURL: {
-            message: "Add logo URL is required",
-            isValid: formData.AddlogoURL.length > 0,
-            onError: () => {
-                setError((error) => ({ ...error, AddlogoURL: true }))
-            }
-        },
-        AddlogoURL: {
-            message: "Add logo URL is required",
-            isValid: formData.AddlogoURL.length > 0,
-            onError: () => {
-                setError((error) => ({ ...error, AddlogoURL: true }))
-            }
-        },
-        AddlogoURL: {
-            message: "Add logo URL is required",
-            isValid: formData.AddlogoURL.length > 0,
-            onError: () => {
-                setError((error) => ({ ...error, AddlogoURL: true }))
-            }
-        },
-        AddlogoURL: {
-            message: "Add logo URL is required",
-            isValid: formData.AddlogoURL.length > 0,
-            onError: () => {
-                setError((error) => ({ ...error, AddlogoURL: true }))
-            }
-        },
-        AddlogoURL: {
-            message: "Add logo URL is required",
-            isValid: formData.AddlogoURL.length > 0,
-            onError: () => {
-                setError((error) => ({ ...error, AddlogoURL: true }))
-            }
-        },
-        mobile: {
-          message: "Mobile Number is required",
-          isValid: formData.mobile.length > 0,
-          onError: () => {
-              setError((error) => ({ ...error, mobile: true }))
-          }
+                setError((error) => ({ ...error, companyName: true }))
+          
       },
-        password: {
-            message: "Password is required",
-            isValid: formData.password.length > 0,
+        
+        },
+        logo: {
+            message: "Logo is required",
+            isValid: formData.logo.length > 0,
             onError: () => {
-                setError((error) => ({ ...error, password: true }))
+                setError((error) => ({ ...error, logo: true }))
             }
         },
-        confirmPassword: {
-            message: "Passwords do not match",
-            isValid: formData.confirmPassword === formData.password,
+        position: {
+            message: "Position is required",
+            isValid: formData.position.length > 0,
             onError: () => {
-                setError((error) => ({ ...error, confirmPassword: true }))
+                setError((error) => ({ ...error, position: true }))
+            }
+        },
+        salary: {
+            message: "Salary is required",
+            isValid: formData.salary.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, salary: true }))
+            }
+        },
+        jobType: {
+            message: "Job type is required",
+            isValid: formData.jobType.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, jobType: true }))
+            }
+        },
+        remote: {
+            message: "Remote is required",
+            isValid: true,
+            onError: () => {
+                setError((error) => ({ ...error, remote: true }))
+            }
+        },
+        location: {
+            message: "Location is required",
+            isValid: formData.location.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, location: true }))
+            }
+        },
+        description: {
+            message: "Description is required",
+            isValid: formData.description.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, description: true }))
+            }
+        },
+        about: {
+            message: "About is required",
+            isValid: formData.about.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, about: true }))
+            }
+        },
+        information: {
+            message: "Information is required",
+            isValid: formData.information.length > 0,
+            onError: () => {
+                setError((error) => ({ ...error, information: true }))
             }
         },
        
@@ -299,7 +293,7 @@ export default function addJob() {
         <Form error={error} formFields={formFields} onSubmit={onSubmit} btn={btn} errorMessages={errorMessages} /></>
 
 
-        <h4>Already have an account?  <a href=""> Sign In</a> </h4>
+        
         </div>
 </div>
 <div className={styles.left}>

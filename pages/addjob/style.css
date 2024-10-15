@@ -1,6 +1,25 @@
 .inputs{
     width: 34rem;
-    height: 8px;
+    height: 0px;
+    border: 2px solid #C2C2C2;
+    padding-left: 18px;
+    
+}
+.dropdown{
+    width: 15%;
+    height: 20px;
+    margin-right: 65%;
+    margin-bottom: 1px;
     border: 2px solid #C2C2C2;
     
+}
+.checkbox{
+    width: 10%;
+    height: 15px;
+    margin-right: 70%;
+  
+    
+}
+.label{
+    width: 110px;
 }

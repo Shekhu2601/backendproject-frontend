@@ -4,6 +4,7 @@ import pageimg from '../ragister/ragisterpage.png'
 import { login } from "../../services/Auth";
 import { useNavigate } from "react-router-dom";
 import styles from './login.module.css'
+import { Link } from "react-router-dom";
 
 export default function Login() {
     const navigate = useNavigate()
@@ -112,7 +113,7 @@ export default function Login() {
         <Form error={error} formFields={formFields} onSubmit={onSubmit} btn={btn} errorMessages={errorMessages} /></>
 
 
-        <h4>Don’t have an account? <a href=""> Sign Up</a> </h4>
+        <h4>Don’t have an account? <Link to="/ragister"> Sign Up</Link> </h4>
         </div>
 </div>
 <div className={styles.left}>

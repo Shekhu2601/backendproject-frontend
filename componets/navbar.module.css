@@ -1,0 +1,46 @@
+nav{
+    
+        display:flex;
+         z-index: 100;
+         position: relative;
+         background: #FF6B6B;
+height: 85px;
+border-radius: 0px 0px 40px 40px;
+display: flex;
+
+align-items: center;
+        
+}
+   .btn {
+    background: transparent;
+    color: #FFFFFF;
+    width: 80px;
+    padding: 6px;
+    margin-top: 18px;
+    
+    border: 2px solid #FFFFFF;
+    border-radius: 3px;
+    position:absolute;
+    right: 10rem;
+
+}
+.btnre {
+    
+    color: #ED5353;
+    background-color: #FFFFFF;
+    width: 85px;
+    padding: 5px;
+    margin-top: 18px;
+    
+    border: 2px solid #FFFFFF;
+    border-radius: 3px;
+    position:absolute;
+    right: 4rem;
+
+}
+.nav{
+    
+    color: #FFFFFF;
+    margin-left: 4rem;
+
+}
